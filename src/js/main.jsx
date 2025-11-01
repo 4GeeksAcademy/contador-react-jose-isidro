@@ -12,17 +12,33 @@ import '../styles/index.css'
 
 import Home from './components/Home';
 let segundos1 = 0;
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Home seg={segundos1} />
-  </React.StrictMode>,
-)
+let principal = ReactDOM.createRoot(document.getElementById('root'))
+
+function App() {
+  principal.render(
+    <React.StrictMode>
+      <Home seg={segundos1} />
+    </React.StrictMode>,
+  )
+
+}
+
+App();
+
+let contador = setInterval(() => {
+  segundos1++;
+  App()
+}, 1000)
 
 //create your first component
-setInterval(() =>{
-  segundos1++;
-  ReactDOM.createRoot(document.getElementById('root')).render(
-      <Home seg={segundos1} />
-  )
-}, 1000)
+export function botonRestar() {
+  clearInterval(contador)
+  segundos1 = 0
+  App();
+  contador = setInterval(() => {
+    segundos1++;
+    App()
+  }, 1000)
+}
+
 

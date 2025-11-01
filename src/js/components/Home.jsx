@@ -2,15 +2,16 @@ import React from "react";
 
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
+import { botonRestar } from "../main";
 
 
-const Home = ({seg}) => {
-let segundos1 = seg % 10;
-  let segundos2 = Math.floor(seg / 10) % 6;
-  let minutos1 = Math.floor(seg / 60) % 10;
-  let minutos2 = Math.floor(seg / 600) % 6;
-  let horas1 = Math.floor(seg / 3600) % 10;
-  let horas2 = Math.floor(seg / 36000);
+const Home = ({ seg }) => {
+	let segundos1 = seg % 10;
+	let segundos2 = Math.floor(seg / 10) % 6;
+	let minutos1 = Math.floor(seg / 60) % 10;
+	let minutos2 = Math.floor(seg / 600) % 6;
+	let horas1 = Math.floor(seg / 3600) % 10;
+	let horas2 = Math.floor(seg / 36000);
 	return (
 		<div className="container bg-black ">
 			<div className="row p-4  text-center mx-3">
@@ -38,6 +39,10 @@ let segundos1 = seg % 10;
 					<h1 className="m-5"> {segundos1}</h1>
 				</div>
 			</div>
+			<div className="text-center">
+				<button type="button" className="btn btn-dark " onClick={botonRestar}>restar</button>
+			</div>
+
 		</div>
 	);
 };
